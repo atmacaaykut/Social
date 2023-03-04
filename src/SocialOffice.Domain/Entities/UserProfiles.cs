@@ -3,10 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Volo.Abp.Domain.Entities.Auditing;
+using Volo.Abp.Identity;
 
 namespace SocialOffice.Entities
 {
-    internal class UserProfiles
+    public class UserProfiles: AuditedEntity<Guid>
     {
+        public Guid UserId { get; set; }
+        public IdentityUser IdentityUser { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Status { get; set; }
+        public string NickName { get; set; }
+        public string ProfilePictureUrl { get; set; }
+        public DateTime BirthDate { get; set; }
     }
 }
