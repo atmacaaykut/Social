@@ -72,6 +72,7 @@ public class SocialOfficeDbContext :
         builder.ConfigureOpenIddict();
         builder.ConfigureFeatureManagement();
         builder.ConfigureTenantManagement();
+        builder.ApplyConfigurationsFromAssembly(this.GetType().Assembly);
 
         /* Configure your own tables/entities inside here */
 
