@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SocialOffice.Entities;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.Data;
@@ -24,6 +25,11 @@ public class SocialOfficeDbContext :
     ITenantManagementDbContext
 {
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
+    public DbSet<DirectMessage> DirectMessages { get; set; }
+    public DbSet<Friendship> Friendships { get; set; }
+    public DbSet<Image> Images { get; set; }
+    public DbSet<Post> Posts { get; set; }
+    public DbSet<UserProfile> UserProfiles { get; set; }
 
     #region Entities from the modules
 

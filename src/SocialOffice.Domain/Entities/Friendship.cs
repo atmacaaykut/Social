@@ -8,7 +8,7 @@ using Volo.Abp.Identity;
 
 namespace SocialOffice.Entities
 {
-    public class Friendships:AuditedEntity<Guid>
+    public class Friendship:AuditedEntity<Guid>
     {
         public Guid RequestorId { get; set; }
         public IdentityUser RequestorIdentityUser { get; set; }
