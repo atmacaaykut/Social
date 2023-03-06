@@ -10,16 +10,16 @@ using Volo.Abp.EntityFrameworkCore.Modeling;
 
 namespace SocialOffice.TypeConfigs
 {
-    public class PostEntityTypeConfiguration : IEntityTypeConfiguration<Post>
+    public class ImageEntityTypeConfiguration : IEntityTypeConfiguration<Image>
     {
-        public void Configure(EntityTypeBuilder<Post> builder)
+        public void Configure(EntityTypeBuilder<Image> builder)
         {
-            builder.ToTable($"{SocialOfficeConsts.DbTablePrefix}{nameof(Post)}",SocialOfficeConsts.DbSchema);
+            builder.ToTable($"{SocialOfficeConsts.DbTablePrefix}{nameof(Image)}", SocialOfficeConsts.DbSchema);
             builder.ConfigureByConvention();
 
-            builder.HasOne(entity => entity.IdentityUser)
-                .WithMany(parent => parent.Posts)
-                .HasForeignKey(entity => entity.UserId)
+            builder.HasOne(entity => entity.Post)
+                .WithMany(parent => parent.Images)
+                .HasForeignKey(entity => entity.PostId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

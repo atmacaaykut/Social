@@ -11,9 +11,9 @@ namespace SocialOffice.Entities
     public class Friendship:AuditedEntity<Guid>
     {
         public Guid RequestorId { get; set; }
-        public IdentityUser RequestorIdentityUser { get; set; }
+        public IdentityUserCustomized RequestorIdentityUser { get; set; }
         public Guid ReceiverId { get; set; }
-        public IdentityUser ReceiverIdentityUser { get; set; }
+        public IdentityUserCustomized ReceiverIdentityUser { get; set; }
         public bool IsApproved { get; set; }
     }
 }

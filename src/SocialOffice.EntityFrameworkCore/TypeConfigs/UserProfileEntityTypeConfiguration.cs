@@ -10,15 +10,15 @@ using Volo.Abp.EntityFrameworkCore.Modeling;
 
 namespace SocialOffice.TypeConfigs
 {
-    public class PostEntityTypeConfiguration : IEntityTypeConfiguration<Post>
+    public class UserProfileEntityTypeConfiguration : IEntityTypeConfiguration<UserProfile>
     {
-        public void Configure(EntityTypeBuilder<Post> builder)
+        public void Configure(EntityTypeBuilder<UserProfile> builder)
         {
-            builder.ToTable($"{SocialOfficeConsts.DbTablePrefix}{nameof(Post)}",SocialOfficeConsts.DbSchema);
+            builder.ToTable($"{SocialOfficeConsts.DbTablePrefix}{nameof(UserProfile)}", SocialOfficeConsts.DbSchema);
             builder.ConfigureByConvention();
 
             builder.HasOne(entity => entity.IdentityUser)
-                .WithMany(parent => parent.Posts)
+                .WithMany(parent => parent.UserProfiles)
                 .HasForeignKey(entity => entity.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
