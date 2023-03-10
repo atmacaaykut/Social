@@ -23,6 +23,6 @@ namespace SocialOffice.Entities
         public List<Friendship> FriendshipSenders { get; set; }
         public List<Friendship> FriendshipReceivers { get; set; }
         public List<Post> Posts { get; set; }
-        public List<UserProfile> UserProfiles { get; set; }
+        public UserProfile UserProfile { get; set; }
     }
 }

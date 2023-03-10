@@ -18,8 +18,8 @@ namespace SocialOffice.TypeConfigs
             builder.ConfigureByConvention();
 
             builder.HasOne(entity => entity.IdentityUser)
-                .WithMany(parent => parent.UserProfiles)
-                .HasForeignKey(entity => entity.UserId)
+                .WithOne(parent => parent.UserProfile)
+                .HasForeignKey<UserProfile>(entity => entity.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

@@ -20,11 +20,12 @@ namespace SocialOffice.TypeConfigs
             builder.HasOne(entity => entity.RequestorIdentityUser)
                 .WithMany(parent => parent.FriendshipSenders)
                 .HasForeignKey(entity => entity.RequestorId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
             
             builder.HasOne(entity => entity.ReceiverIdentityUser)
-                .WithMany(parent => parent.FriendshipSenders)
-                .HasForeignKey(entity => entity.ReceiverId);
+                .WithMany(parent => parent.FriendshipReceivers)
+                .HasForeignKey(entity => entity.ReceiverId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

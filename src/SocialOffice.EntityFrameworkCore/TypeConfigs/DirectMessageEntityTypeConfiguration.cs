@@ -20,14 +20,12 @@ namespace SocialOffice.TypeConfigs
             builder.HasOne(entity => entity.FromIdentityUser)
                  .WithMany(parent => parent.DirectMessagesSender)
                  .HasForeignKey(entity => entity.FromUserId)
-                 .IsRequired(false)
-                 .OnDelete(DeleteBehavior.ClientSetNull);
+                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(entity => entity.ToIdentityUser)
-                 .WithMany(parent => parent.DirectMessagesSender)
+                 .WithMany(parent => parent.DirectMessagesReceiver)
                  .HasForeignKey(entity => entity.ToUserId)
-                 .IsRequired(false)
-                 .OnDelete(DeleteBehavior.ClientSetNull);
+                 .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
